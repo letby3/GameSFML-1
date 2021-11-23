@@ -3,6 +3,7 @@
 #include <windows.h>   // для SetConsoleCP()
 #include <stdio.h> //для sleep(300) - задержка в 0,3 секунды
 #include <fstream> //для работы с файлами
+#include <cmath>
 
 using namespace sf;
 using namespace std;
@@ -161,15 +162,15 @@ void _stitches(sf::RenderWindow& window, int x, int y) { //заполнение списка коо
 }
 
 void drawing_circle(sf::RenderWindow& window) { //рисование круга для обозначения максимальной длины стежка
-	sf::CircleShape сircle(max_len_stetch * zoom); //задаём радиус
+	sf::CircleShape Circle(max_len_stetch * zoom); //задаём радиус
 
 	//позиция круга задаётся с учётом того, что центр должен находиться на конце последнего стежка, если у нас поставлена только одна точка,
 	//то мы не переводим координаты в действиетльные, если не первая, то переводим в действительные
-	сircle.setPosition((tail == head ? 0 : tail->x * zoom) + head->x - max_len_stetch * zoom + moveX, (tail == head ? 0 : -tail->y * zoom) + head->y - max_len_stetch * zoom + moveY);
-	сircle.setOutlineThickness(2.f); //толщина круга
-	сircle.setFillColor(sf::Color(255, 255, 255, 0)); //задаём цвет круга прозрачный
-	сircle.setOutlineColor(sf::Color::Red); //цвет контура
-	window.draw(сircle); //вывод круга
+	Circle.setPosition((tail == head ? 0 : tail->x * zoom) + head->x - max_len_stetch * zoom + moveX, (tail == head ? 0 : -tail->y * zoom) + head->y - max_len_stetch * zoom + moveY);
+	Circle.setOutlineThickness(2.f); //толщина круга
+	Circle.setFillColor(sf::Color(255, 255, 255, 0)); //задаём цвет круга прозрачный
+	Circle.setOutlineColor(sf::Color::Red); //цвет контура
+	window.draw(Circle); //вывод круга
 }
 
 void drawing_stiches(sf::RenderWindow& window) {//рисование стежков

@@ -1,0 +1,6 @@
+To compile the file, I use the mingw 11.2.0
+
+Use: "g++ -c .\main.cpp -ISFML/include" - to create main.o
+
+After: "g++ .\main.o -o ShveinayaMashina.exe -LSFML\lib -lsfml-graphics
+-lsfml-window -l:libsfml-system.a" - to create .exe file
